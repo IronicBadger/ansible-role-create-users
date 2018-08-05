@@ -10,6 +10,7 @@
     name: "{{ item.name }}"
     state: present
     groups: "{{ item.groups }}"
+    shell: "{{ item.shell | default(/bin/bash)"
   with_items: "{{ users }}"
 
 - name: add SSH authorized_keys from github
