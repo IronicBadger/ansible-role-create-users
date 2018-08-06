@@ -10,6 +10,6 @@ user_groups:
   - docker
 
 users:
-  - { name: ktz, groups: docker, sshkeys: ironicbadger.keys}
+  - { name: ktz, groups: docker, sshkeys: ironicbadger.keys, shell: "/bin/bash"}
 ```
 
