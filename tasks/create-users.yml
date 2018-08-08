@@ -12,7 +12,7 @@
     groups: "{{ item.groups }}"
     shell: "{{ item.shell }}"
     uid: "{{ item.uid }}"
-    gid: "{{ item.gid }}"
+    group: "{{ item.gid }}"
   with_items: "{{ users }}"
 
 - name: add SSH authorized_keys from github
