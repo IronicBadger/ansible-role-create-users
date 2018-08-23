@@ -15,6 +15,17 @@
     group: "{{ item.gid }}"
   with_items: "{{ users }}"
 
+# ansible bug workaround
+- name: ensure users home folders perms and owners are correct
+  file:
+    path: "/home/{{ item.name }}"
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+    state: directory
+    recurse: yes
+    mode: 0755
+  with_items: "{{ users }}"
+
 - name: add SSH authorized_keys from github
   authorized_key:
     user: "{{ item.name }}"
