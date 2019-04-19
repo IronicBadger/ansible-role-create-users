@@ -3,7 +3,13 @@
   group:
     name: "{{ item }}"
     state: present
-  with_items: "{{ user_groups }}"
+  with_items: 
+    - "{{ user_groups }}"
+
+- name: create primary 1313 group
+  group:
+    name: "{{ primary_username }}"
+    gid: "{{ ktz_gid }}"
 
 - name: create new users
   user:
